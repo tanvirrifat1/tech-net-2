@@ -1,12 +1,16 @@
 import { configureStore } from '@reduxjs/toolkit';
 import cartReducer from './features/cart/cartSlice';
 import productReducer from './features/products/productSlice';
+import { pokemonApi } from './api/apiSlice';
 
 export const store = configureStore({
   reducer: {
     cart: cartReducer,
     product: productReducer,
+    [pokemonApi.reducerPath]: pokemonApi.reducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(pokemonApi.middleware),
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
