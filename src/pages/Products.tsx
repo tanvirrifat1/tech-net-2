@@ -37,7 +37,9 @@ export default function Products() {
   }
 
   if (isLoading) {
-    return <p>Loading....</p>;
+    return (
+      <p className="text-3xl flex justify-center items-center">Loading....</p>
+    );
   }
 
   return (

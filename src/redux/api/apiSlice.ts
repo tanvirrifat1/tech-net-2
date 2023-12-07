@@ -9,7 +9,10 @@ export const pokemonApi = createApi({
     getProducts: builder.query({
       query: () => APIPRO,
     }),
+    singleProducts: builder.query({
+      query: (id) => `${APIPRO}/${id}`,
+    }),
   }),
 });
 
-export const { useGetProductsQuery } = pokemonApi;
+export const { useGetProductsQuery, useSingleProductsQuery } = pokemonApi;
